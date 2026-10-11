@@ -168,15 +168,28 @@ footer p{opacity:.7;margin-top:8px}
 .loc #lc{margin:0;width:100%;font-size:1rem}
 #hn{font-size:.88rem;font-weight:700;color:var(--plum);text-align:center}
 @keyframes pulse2{50%{opacity:.55}}
+.lcard{display:grid;grid-template-columns:1.25fr 1fr;background:var(--wh);color:var(--navy);border:5px solid var(--navy);border-radius:28px;box-shadow:12px 12px 0 var(--yel);overflow:hidden}
+@media(max-width:820px){.lcard{grid-template-columns:1fr}}
+.lmap{position:relative;min-height:360px;display:grid;place-content:center;justify-items:center;text-align:center;gap:2px;background:linear-gradient(#0000 96%,rgba(23,24,39,.12) 0) 0 0/40px 40px,linear-gradient(90deg,#0000 96%,rgba(23,24,39,.12) 0) 0 0/40px 40px,#ece6d6}
+.lmap iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lmap .pin{font-size:4rem;line-height:1;animation:hop2 1s ease-in-out infinite alternate}
+.lmap b{font-family:'Lalezar';font-size:1.8rem;color:var(--plum);font-weight:400}
+@keyframes hop2{to{transform:translateY(-14px)}}
+.linfo{padding:clamp(20px,4vw,38px)}
+.linfo h3{font-size:2.4rem;color:var(--plum);line-height:1.2;margin-bottom:10px}
+.linfo p{margin-bottom:6px;font-weight:600}
+.linfo .addr{font-size:1.2rem;font-weight:800}
+.lbt{display:grid;gap:10px;margin-top:18px}
+.lbt .btn{margin:0;text-align:center}
 </style>
 </head>
 <body>
 <div id="load"><img class="rs"></div><div id="bar"></div>
-<nav id="nav"><a href="#top"><img class="lg" alt="مطبخ العائلة"></a><div class="links"><a href="#sig">المميز</a><a href="#menu">القائمة</a><a href="#story">قصتنا</a><a href="#res">احجز</a><a class="btn" href="#menu">اطلب الآن</a></div></nav>
+<nav id="nav"><a href="#top"><img class="lg" alt="مطبخ العائلة"></a><div class="links"><a href="#sig">المميز</a><a href="#menu">القائمة</a><a href="#story">قصتنا</a><a href="#loc">موقعنا</a><a class="btn" href="#menu">اطلب الآن</a></div></nav>
 
 <header class="hero" id="top"><div><img class="lg sk" alt="مطبخ العائلة Family Kitchen">
 <p>مندي ومشويات بطعم البيت الأصيل… لحم طازج، نار هادية، وبهارات سرّ العائلة 🔥</p>
-<div class="hb"><a class="btn" href="#menu">شوف القائمة</a><a class="btn w" href="#res">احجز طاولتك</a></div></div></header>
+<div class="hb"><a class="btn" href="#menu">شوف القائمة</a><a class="btn w" href="#loc">📍 موقعنا</a></div></div></header>
 <div class="rib"><div id="mq"></div></div>
 
 <section id="sig"><div class="in"><div class="hd rv"><h2>أطباقنا المميزة</h2></div>
@@ -200,8 +213,14 @@ footer p{opacity:.7;margin-top:8px}
 <section class="lt"><div class="in"><div class="hd rv"><h2>من مطبخنا</h2></div>
 <div class="gal rv"><div class="ph" data-k="gallery-1"></div><div class="ph" data-k="gallery-2"></div><div class="ph" data-k="gallery-3"></div><div class="ph" data-k="gallery-4"></div><div class="ph" data-k="gallery-5"></div></div></div></section>
 
-<section class="pl" id="res"><div class="res rv"><div><h2>طاولتك مستنياك!</h2><p>📍 ضع عنوان المطعم هنا</p><p>📞 0914040157</p><p>🕒 يومياً من 12 ظهراً حتى 12 منتصف الليل</p></div>
-<div class="fld"><input id="nm" placeholder="الاسم"><input id="gs" type="number" min="1" placeholder="عدد الأشخاص"><input id="dt" type="datetime-local"><button class="btn" id="bk">احجز عبر واتساب</button></div></div></section>
+<section class="pl" id="loc"><div class="w"><div class="hd rv"><h2>موقع المطعم</h2></div>
+<div class="lcard rv"><div class="lmap" id="lmap"><div class="pin">📍</div><b>مطبخ العائلة</b><span>أبو الخصيب — البصرة</span></div>
+<div class="linfo"><h3>تعال زورنا</h3>
+<p class="addr">📍 أبو الخصيب، محافظة البصرة، العراق</p>
+<p>🔖 كود الموقع: <span dir="ltr">FV7W+95P</span></p>
+<p>🕒 يومياً من 12 ظهراً حتى 12 منتصف الليل</p>
+<p>📞 0914040157</p>
+<div class="lbt"><a class="btn" href="https://www.google.com/maps/dir/?api=1&destination=30.46344,47.89544" target="_blank" rel="noopener">اتجاهات الوصول</a><a class="btn w" href="https://maps.app.goo.gl/7BtTAUE376mywoZ57?g_st=aw" target="_blank" rel="noopener">افتح في خرائط قوقل</a><a class="btn w" href="https://wa.me/249914040157" target="_blank" rel="noopener">راسلنا على واتساب</a></div></div></div></div></section>
 <footer><img class="rs" alt=""><p>© مطبخ العائلة — Family Kitchen</p></footer>
 <button id="cart" class="btn"></button>
 <div id="ov"></div>
@@ -209,7 +228,7 @@ footer p{opacity:.7;margin-top:8px}
 <div id="dl"></div>
 <div class="tl"><span>الإجمالي</span><b id="tot"></b></div>
 <div class="fm" id="fm"><div class="seg"><label><input type="radio" name="md" value="delivery" checked><span>توصيل</span></label><label><input type="radio" name="md" value="pickup"><span>استلام من المطعم</span></label></div>
-<input id="cn" placeholder="الاسم"><input id="cp" type="tel" inputmode="tel" placeholder="رقم الهاتف"><div class="loc" id="lb"><div class="lh"><span class="li">📍</span><div><b id="lt">حدد موقع التوصيل</b><small id="ls">مطلوب لإتمام الطلب</small></div></div><button type="button" class="btn w" id="lc">تحديد موقعي الآن</button></div><input id="ca" placeholder="تفاصيل العنوان / أقرب معلم (اختياري)"><input id="cm" placeholder="ملاحظات (اختياري)"><div id="er"></div><div id="hn"></div><button class="btn" id="sd">إرسال الطلب</button></div>
+<input id="cn" placeholder="الاسم"><input id="cp" type="tel" inputmode="tel" placeholder="رقم الهاتف"><div class="loc" id="lb"><div class="lh"><span class="li">📍</span><div><b id="lt">حدد موقع التوصيل</b><small id="ls">مطلوب لإتمام الطلب</small></div></div><button type="button" class="btn w" id="lc">تحديد موقعي الآن</button></div><input id="cm" placeholder="ملاحظات (اختياري)"><div id="er"></div><div id="hn"></div><button class="btn" id="sd">إرسال الطلب</button></div>
 <div id="ok" hidden></div></aside>
 
 <script>
@@ -245,7 +264,6 @@ $("#tabs").innerHTML=cats.map(c=>`<button class="tab ${c==="الكل"?"on":""}" 
 $("#tabs").onclick=e=>{const b=e.target.closest(".tab");if(!b)return;$$(".tab").forEach(t=>t.classList.remove("on"));b.classList.add("on");cur=b.dataset.c;draw()};
 function draw(){$("#list").innerHTML=MENU.map((m,i)=>({m,i})).filter(o=>cur==="الكل"||o.m.c===cur).sort((x,y)=>y.m.a-x.m.a).map((o,k)=>`<div class="card pc ${o.m.a?"":"na"}" style="animation-delay:${k*.06}s"><div class="pw"><div class="ph" data-k="${o.m.k}"></div>${o.m.a?"":'<span class="nb">غير متوفر الآن</span>'}</div><div class="tx"><h3>${o.m.n}</h3><p>${o.m.d}</p><div class="pf"><span class="pr">${o.m.p} د.ع</span>${o.m.a?`<button class="add" data-i="${o.i}" aria-label="أضف للطلب">+</button>`:""}</div></div></div>`).join("");$$("#list .ph").forEach(img)}
 draw();
-$("#bk").onclick=()=>{if(!waOK()){alert("ضع رقم الواتساب في أول السكربت (WA) أولاً");return}const t="حجز طاولة\nالاسم: "+$("#nm").value+"\nالعدد: "+$("#gs").value+"\nالموعد: "+$("#dt").value.replace("T"," ");open("https://wa.me/"+WA+"?text="+encodeURIComponent(t),"_blank")};
 for(let i=0;i<14;i++){const f=document.createElement("i");f.className="fe";f.style.cssText=`left:${Math.random()*100}%;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*8}s;transform-origin:center`;$(".hero").appendChild(f)}
 // ===== نظام الطلب: السلة + إرسال واتساب + حفظ في Supabase (اختياري) =====
 // لتفعيل الحفظ في Supabase: ضع الرابط والمفتاح العام (anon) هنا، ونفّذ ملف orders.sql مرة واحدة
@@ -270,7 +288,7 @@ $("#list").onclick=e=>{const b=e.target.closest(".add");if(!b)return;const i=b.d
 $("#cart").onclick=()=>openDr(true);$("#dx").onclick=$("#ov").onclick=()=>openDr(false);
 addEventListener("keydown",e=>{if(e.key==="Escape")openDr(false)});
 $("#dl").onclick=e=>{const b=e.target.closest("[data-q]");if(!b)return;const i=b.dataset.i;cart[i]=Math.max(0,(cart[i]||0)+ +b.dataset.q);if(!cart[i])delete cart[i];renderCart()};
-document.querySelectorAll('[name=md]').forEach(r=>r.onchange=()=>{{const d=curMode()==="delivery";$("#ca").hidden=$("#lb").hidden=!d;updSend()}});
+document.querySelectorAll('[name=md]').forEach(r=>r.onchange=()=>{{const d=curMode()==="delivery";$("#lb").hidden=!d;updSend()}});
 $("#lc").onclick=()=>{
 if(!navigator.geolocation||!window.isSecureContext){LOC=null;setLoc("err","تحديد الموقع غير متاح","افتح الموقع من رابط آمن (https)، أو اختر الاستلام من المطعم.");updSend();return}
 setLoc("ld","جاري تحديد موقعك…","اسمح للمتصفح بالوصول إلى موقعك");$("#lc").disabled=true;
@@ -282,16 +300,16 @@ e=>{LOC=null;$("#lc").disabled=false;$("#lc").textContent="إعادة المحا
 setLoc("err",e.code===1?"لم يتم السماح بالوصول للموقع":"تعذّر تحديد الموقع",e.code===1?"فعّل إذن الموقع للمتصفح من إعدادات الموقع ثم اضغط إعادة المحاولة، أو اختر الاستلام من المطعم.":"تأكد من تشغيل GPS والإنترنت ثم أعد المحاولة.");updSend()},
 {enableHighAccuracy:true,timeout:20000,maximumAge:0})};
 $("#sd").onclick=()=>{
-const L=lines(),mode=document.querySelector('[name=md]:checked').value,nm=$("#cn").value.trim(),ph=$("#cp").value.trim(),ad=$("#ca").value.trim(),nt=$("#cm").value.trim(),er=$("#er");
+const L=lines(),mode=document.querySelector('[name=md]:checked').value,nm=$("#cn").value.trim(),ph=$("#cp").value.trim(),nt=$("#cm").value.trim(),er=$("#er");
 if(!L.length)return er.textContent="السلة فاضية";
 if(nm.length<2)return er.textContent="اكتب اسمك";
 if(ph.replace(/\D/g,"").length<8)return er.textContent="اكتب رقم هاتف صحيح";
 if(mode==="delivery"&&!LOC)return er.textContent="لازم تحدد موقع التوصيل أولاً عشان نقدر نوصّل ليك الطلب";
 er.textContent="";
 const no="HK-"+Date.now().toString(36).slice(-5).toUpperCase(),tt=total(),mapUrl=mode==="delivery"&&LOC?"https://www.google.com/maps?q="+LOC.lat+","+LOC.lng:"";
-const text=["طلب جديد #"+no,"الاسم: "+nm,"الهاتف: "+ph,"النوع: "+(mode==="delivery"?"توصيل":"استلام من المطعم"),mode==="delivery"&&ad?"العنوان: "+ad:"",mapUrl?"الموقع على الخريطة: "+mapUrl:"","الطلبات:",...L.map(o=>"- "+o.m.n+" × "+o.q+" = "+money(num(o.m.p)*o.q)),"الإجمالي: "+money(tt),nt?"ملاحظات: "+nt:""].filter(Boolean).join("\n");
+const text=["طلب جديد #"+no,"الاسم: "+nm,"الهاتف: "+ph,"النوع: "+(mode==="delivery"?"توصيل":"استلام من المطعم"),mapUrl?"الموقع على الخريطة: "+mapUrl:"","الطلبات:",...L.map(o=>"- "+o.m.n+" × "+o.q+" = "+money(num(o.m.p)*o.q)),"الإجمالي: "+money(tt),nt?"ملاحظات: "+nt:""].filter(Boolean).join("\n");
 const hasSB=!!(SB.url&&SB.key);
-const p=hasSB?fetch(SB.url+"/rest/v1/"+SB.table,{method:"POST",keepalive:true,headers:{apikey:SB.key,Authorization:"Bearer "+SB.key,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({order_no:no,customer_name:nm,phone:ph,mode,address:mode==="delivery"&&ad?ad:null,lat:mapUrl?LOC.lat:null,lng:mapUrl?LOC.lng:null,map_url:mapUrl||null,notes:nt||null,items:L.map(o=>({name:o.m.n,qty:o.q,price:num(o.m.p)})),total:tt})}).then(r=>r.ok).catch(()=>false):Promise.resolve(null);
+const p=hasSB?fetch(SB.url+"/rest/v1/"+SB.table,{method:"POST",keepalive:true,headers:{apikey:SB.key,Authorization:"Bearer "+SB.key,"Content-Type":"application/json",Prefer:"return=minimal"},body:JSON.stringify({order_no:no,customer_name:nm,phone:ph,mode,lat:mapUrl?LOC.lat:null,lng:mapUrl?LOC.lng:null,map_url:mapUrl||null,notes:nt||null,items:L.map(o=>({name:o.m.n,qty:o.q,price:num(o.m.p)})),total:tt})}).then(r=>r.ok).catch(()=>false):Promise.resolve(null);
 if(waOK())window.open("https://wa.me/"+WA+"?text="+encodeURIComponent(text),"_blank");
 p.then(saved=>{const sent=waOK()||saved===true;let h;
 if(!waOK()&&!hasSB)h=`<h3>الطلب جاهز لكن لم يُرسل</h3><p>لم يتم ضبط رقم واتساب المطعم بعد في الموقع، فانسخ الطلب وأرسله يدوياً:</p><textarea readonly rows="8">${text}</textarea>`;
@@ -299,6 +317,7 @@ else h=`<h3>${sent?"تم استلام طلبك ✔":"تعذّر الإرسال"}
 $("#fm").hidden=true;$("#ok").innerHTML=h;$("#ok").hidden=false;if(sent){cart={};LOC=null;setLoc("","حدد موقع التوصيل","مطلوب لإتمام الطلب");$("#lc").textContent="تحديد موقعي الآن";renderCart()}})};
 renderCart();
 
+(()=>{const m=$("#lmap");if(/claude|anthropic/i.test(location.hostname))return;const f=document.createElement("iframe");f.src="https://maps.google.com/maps?q=30.46344,47.89544&z=17&output=embed&hl=ar";f.loading="lazy";f.title="موقع مطعم مطبخ العائلة";m.appendChild(f)})();
 addEventListener("load",()=>setTimeout(()=>$("#load").classList.add("out"),900));
 addEventListener("scroll",()=>{const h=document.documentElement;$("#bar").style.width=(scrollY/(h.scrollHeight-innerHeight)*100)+"%";$("#nav").classList.toggle("s",scrollY>40)},{passive:true});
 const io=new IntersectionObserver(es=>es.forEach(x=>{if(x.isIntersecting){x.target.classList.add("on");x.target.querySelectorAll("[data-n]").forEach(n=>{if(n.d)return;n.d=1;const t=+n.dataset.n,st=Math.ceil(t/60);let v=0;const id=setInterval(()=>{v=Math.min(t,v+st);n.textContent=v.toLocaleString("en");if(v>=t)clearInterval(id)},25)})}}),{threshold:.15});
